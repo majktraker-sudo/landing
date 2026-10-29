@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бібліотека юристів</title>
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-brand-50: #eef2fc;
+        --color-brand-100: #dbe3fa;
+        --color-brand-300: #9db0f0;
+        --color-brand-700: #1636b0;
+        --color-brand-800: #102a8c;
+      }
+      @custom-variant dark {
+        @media screen and (prefers-color-scheme: dark) {
+          @slot;
+        }
+      }
+    </style>
+</head>
+<body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+<header class="border-b border-slate-200 dark:border-slate-700 print:hidden">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-8 gap-y-1 px-4 py-3 md:px-6">
+        <div class="header-top">
+            <h1 class="text-xl font-bold text-brand-700">Бібліотека юристів</h1>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Бібліотека компонентів</p>
+        </div>
+
+        <nav aria-label="Головне меню" class="print:hidden">
+            <ul class="flex flex-wrap gap-x-5">
+                <li><a class="inline-block py-2 font-semibold text-brand-700 hover:underline dark:text-brand-300" href="#benefits">Переваги</a></li>
+                <li><a class="inline-block py-2 font-semibold text-brand-700 hover:underline dark:text-brand-300" href="#pricing">Ціни</a></li>
+                <li><a class="inline-block py-2 font-semibold text-brand-700 hover:underline dark:text-brand-300" href="#reviews">Відгуки</a></li>
+                <li><a class="inline-block py-2 font-semibold text-brand-700 hover:underline dark:text-brand-300" href="#contact">Контакти</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <picture class="header-img block px-4 py-6 mx-auto max-w-6xl md:px-6 print:hidden">
+        <source media="(min-width: 800px)" srcset="img/hero-wide.jpg">
+        <img class="w-full rounded-2xl object-cover" src="img/hero-mobile.jpg" alt="Головна сторінка платформи Бібліотека юристів">
+    </picture>
+</header>
+
+    <main>
+        <section id="benefits" class="mx-auto max-w-6xl px-4 py-12 md:px-6" aria-label="Переваги">
+            <h2 class="text-2xl font-bold md:text-3xl">Переваги</h2>
+            <h3 class="mt-4 text-xl font-semibold">Як це працює</h3>
+            <ol class="mt-4 list-decimal space-y-2 pl-5 text-slate-600 dark:text-slate-400">
+                <li>Оберіть тариф</li>
+                <li>Заповніть форму</li>
+                <li>Отримайте доступ</li>
+            </ol>
+
+            <dl class="mt-6 grid gap-4 sm:grid-cols-2">
+                <div class="rounded-xl border border-slate-200 p-4 dark:border-slate-700">
+                    <dt class="font-semibold text-brand-700 dark:text-brand-300">Підтримка</dt>
+                    <dd class="mt-1 text-slate-600 dark:text-slate-400">щодня, 9:00–18:00</dd>
+                </div>
+                <div class="rounded-xl border border-slate-200 p-4 dark:border-slate-700">
+                    <dt class="font-semibold text-brand-700 dark:text-brand-300">Гарантія</dt>
+                    <dd class="mt-1 text-slate-600 dark:text-slate-400">14 днів</dd>
+                </div>
+            </dl>
+        </section>
+
+        <section id="pricing" class="bg-slate-50 py-12 dark:bg-slate-900" aria-label="Ціни">
+            <div class="mx-auto max-w-6xl px-4 md:px-6">
+                <h2 class="text-2xl font-bold md:text-3xl">Ціни</h2>
+                <div class="mt-6 overflow-x-auto">
+                    <table class="w-full border-collapse text-left">
+                        <caption class="mb-3 text-left font-semibold text-slate-600 dark:text-slate-400">Тарифи на місяць</caption>
+                        <thead>
+                            <tr class="border-b border-slate-200 dark:border-slate-700">
+                                <th class="py-3 pr-4 font-semibold" scope="col">Тариф</th>
+                                <th class="py-3 px-4 font-semibold" scope="col">Ціна</th>
+                                <th class="py-3 pl-4 font-semibold" scope="col">Місць</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                            <tr>
+                                <th class="py-3 pr-4 font-medium" scope="row">Базовий</th>
+                                <td class="py-3 px-4">490 грн</td>
+                                <td class="py-3 pl-4">1</td>
+                            </tr>
+                            <tr>
+                                <th class="py-3 pr-4 font-medium" scope="row">Команда</th>
+                                <td class="py-3 px-4">1 290 грн</td>
+                                <td class="py-3 pl-4">5</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="pt-4 text-sm text-slate-500 dark:text-slate-400" colspan="3">Ціни вказано з ПДВ</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="mx-auto max-w-6xl px-4 py-12 md:px-6" aria-label="Матеріали та огляди">
+            <h2 class="text-2xl font-bold md:text-3xl">Юридичні матеріали та огляди</h2>
+            <article class="mt-6 rounded-xl border border-slate-200 p-6 dark:border-slate-700 dark:bg-slate-950">
+                <figure>
+                    <img class="w-full rounded-lg object-cover"
+                         src="img/hero-mobile.jpg"
+                         srcset="img/hero-mobile.jpg 480w, img/hero-wide.jpg 800w"
+                         sizes="(max-width: 600px) 480px, 800px"
+                         width="400"
+                         height="250"
+                         loading="lazy"
+                         alt="Збірка законів та кодексів України">
+                    <figcaption class="mt-2 text-sm text-slate-500 dark:text-slate-400">Цивільний кодекс України</figcaption>
+                </figure>
+                <h3 class="mt-4 text-xl font-semibold">Коментар до Цивільного кодексу</h3>
+                <p class="mt-2 text-slate-600 dark:text-slate-400">Детальний практичний розгляд ключових статей, судової практики та розʼяснень для юристів-практиків.</p>
+                <button class="mt-6 rounded-lg bg-brand-700 px-5 py-3 font-semibold text-white hover:bg-brand-800 print:hidden" type="button">Отримати доступ</button>
+            </article>
+
+            <section class="mt-8" aria-label="Промо-відео">
+                <h3 class="text-xl font-semibold">Вебінар: зміни в законодавстві</h3>
+                <video class="mt-4 w-full rounded-xl" controls preload="metadata" poster="video/promo-poster.png" width="800" height="450">
+                    <source src="video/videopromo.mp4" type="video/mp4">
+                    <track kind="captions" src="captions/captions.vtt" srclang="uk" label="Українська" default>
+                    <p>Ваш браузер не відтворює відео. <a class="text-brand-700 underline dark:text-brand-300" href="video/videopromo.mp4">Завантажити MP4</a></p>
+                </video>
+            </section>
+
+            <section class="mt-8" aria-label="Подкаст">
+                <h3 class="text-xl font-semibold">Подкаст: актуальна судова практика</h3>
+                <figure class="mt-4">
+                    <figcaption class="text-sm text-slate-500 dark:text-slate-400">Аудіорозбір резонансних справ тижня</figcaption>
+                    <audio class="mt-2 w-full" controls preload="none" src="audio/audiopodcast.mp3"></audio>
+                </figure>
+                <details class="mt-4 rounded-lg border border-slate-200 p-4 dark:border-slate-700">
+                    <summary class="font-semibold cursor-pointer">Текстова версія (транскрипт)</summary>
+                    <p class="mt-2 text-slate-600 dark:text-slate-400">Головні правові позиції Верховного Суду у спорах щодо договірних зобов'язань.</p>
+                </details>
+            </section>
+        </section>
+
+        <section id="contact" class="bg-slate-50 py-12 dark:bg-slate-900">
+            <div class="mx-auto max-w-6xl px-4 md:px-6">
+                <h2 class="text-2xl font-bold md:text-3xl">Напишіть нам</h2>
+                <p class="mt-2 text-slate-600 dark:text-slate-400">Поля з позначкою «обов’язково» потрібно заповнити</p>
+               
+                <form class="mt-6 max-w-xl" id="contact-form" action="/send" method="post" novalidate>
+                    <p class="mb-4">
+                        <label class="block font-semibold" for="name">Ім’я (обов’язково)</label>
+                        <input class="mt-2 w-full rounded-lg border border-slate-400 px-4 py-3 dark:border-slate-600 dark:bg-slate-950" id="name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="name-error">
+                        <small id="name-error" class="error-message text-red-600"></small>
+                    </p>
+                   
+                    <p class="mb-4">
+                        <label class="block font-semibold" for="email">Електронна пошта (обов’язково)</label>
+                        <input class="mt-2 w-full rounded-lg border border-slate-400 px-4 py-3 dark:border-slate-600 dark:bg-slate-950" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-hint email-error">
+                        <small id="email-hint" class="block mt-1 text-sm text-slate-500 dark:text-slate-400">Приклад: name@example.com</small>
+                        <small id="email-error" class="error-message text-red-600"></small>
+                    </p>
+                   
+                    <p class="mb-4">
+                        <label class="block font-semibold" for="phone">Телефон (необов’язково)</label>
+                        <input class="mt-2 w-full rounded-lg border border-slate-400 px-4 py-3 dark:border-slate-600 dark:bg-slate-950" id="phone" name="phone" type="tel" inputmode="tel" pattern="\+?[0-9 ]{10,20}" autocomplete="tel" aria-describedby="phone-hint phone-error">
+                        <small id="phone-hint" class="block mt-1 text-sm text-slate-500 dark:text-slate-400">Формат: +380 50 123 45 67</small>
+                        <small id="phone-error" class="error-message text-red-600"></small>
+                    </p>
+
+                    <fieldset class="mb-4 rounded-lg border border-slate-300 p-4 dark:border-slate-700">
+                        <legend class="font-semibold px-2">Як вам зручніше отримати відповідь?</legend>
+                        <p class="mt-2 flex items-center gap-2">
+                            <input id="by-email" type="radio" name="reply" value="email" checked>
+                            <label for="by-email">Електронною поштою</label>
+                        </p>
+                        <p class="mt-2 flex items-center gap-2">
+                            <input id="by-phone" type="radio" name="reply" value="phone">
+                            <label for="by-phone">Телефоном</label>
+                        </p>
+                    </fieldset>
+                    
+                    <p class="mb-4">
+                        <label class="block font-semibold" for="topic">Тема звернення</label>
+                        <select class="mt-2 w-full rounded-lg border border-slate-400 px-4 py-3 dark:border-slate-600 dark:bg-slate-950" id="topic" name="topic">
+                            <option value=""> оберіть тему </option>
+                            <option value="access">Проблеми з доступом</option>
+                            <option value="software">Помилка ПЗ / системи</option>
+                            <option value="other">Інше</option>
+                        </select>
+                    </p>
+                    
+                    <p class="mb-4">
+                        <label class="block font-semibold" for="message">Повідомлення (обов’язково)</label>
+                        <textarea class="mt-2 w-full rounded-lg border border-slate-400 px-4 py-3 dark:border-slate-600 dark:bg-slate-950" id="message" name="message" rows="5" required minlength="10" maxlength="500" aria-describedby="message-error"></textarea>
+                        <small id="message-error" class="error-message text-red-600"></small>
+                    </p>
+                    
+                    <p class="mb-6 flex items-start gap-2">
+                        <input class="mt-1" id="consent" name="consent" type="checkbox" required aria-describedby="consent-error">
+                        <label for="consent">Погоджуюсь на обробку моїх персональних даних, щоб отримати відповідь</label>
+                        <small id="consent-error" class="error-message text-red-600"></small>
+                    </p>
+
+                    <button class="rounded-lg bg-brand-700 px-6 py-3 font-semibold text-white hover:bg-brand-800 print:hidden" type="submit">Надіслати</button>
+                    <p class="mt-2" id="form-status" role="status"></p>
+                </form>
+            </div>
+        </section>
+
+        <aside class="mx-auto max-w-6xl px-4 py-8 md:px-6" aria-label="Додаткова інформація">
+            <h3 class="text-xl font-semibold">Корисні посилання</h3>
+            <p class="mt-2 text-slate-600 dark:text-slate-400">Переглянути моє <a class="text-brand-700 underline dark:text-brand-300" href="#">портфоліо</a> або сторінку в соцмережах.</p>
+        </aside>
+    </main>
+
+    <footer class="border-t border-slate-200 py-6 dark:border-slate-700">
+        <div class="mx-auto max-w-6xl px-4 text-center text-slate-500 dark:text-slate-400 md:px-6">
+            Бібліотека юриста · 2026
+        </div>
+    </footer>
+    <script src="js/form.js"></script>
+</body>
+</html>

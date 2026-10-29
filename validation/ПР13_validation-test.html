@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1-initial-scale=1">
+    <title>Юридична консультація</title>
+</head>
+<body>
+    <header id="top">
+        <img src="img/logo.png" alt="Логотип юридичної консультації">
+        <h1>Юридична консультація онлайн</h1>
+    </header>
+    <main>
+        <section id="services">
+            <h2>Послуги</h2>
+            <ul>
+                <li>Оберіть послугу:</li>
+                <li>Договори</li>
+                <li>Спадщина</li>
+            </ul>
+        </section>
+        <section id="contact">
+            <h2>Запис на консультацію</h2>
+            <a href="#contact">Записатися</a>
+        </section>
+        <form action="/send" method="post">
+            <label for="mail">Пошта</label><br>
+            <input id="mail" type="email" required>
+            <button type="submit">Надіслати</button>
+        </form>
+    </main>
+</body>
+</html>

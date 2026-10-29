@@ -1,0 +1,426 @@
+input:user-invalid,
+textarea:user-invalid {
+    border: 2px solid #c0392b;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+    outline: 3px solid #2b4fe0;
+    outline-offset: 2px;
+}
+
+.error-message {
+    color: #c0392b;
+    display: block;
+    margin-top: 4px;
+    font-size: 0.9rem;
+}
+
+#form-status {
+    color: #27ae60;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* --- БАЗОВІ НАЛАШТУВАННЯ ТА КОНТЕЙНЕР (Mobile-First) --- */
+:root {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --text: #222222;
+    --muted: #666666;
+    --line: #dddddd;
+    --accent: #2b4fe0;
+    --accent-ink: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+/* Гнучкий контейнер для основних блоків */
+.container, header, main > section, footer {
+    max-width: 72rem; /* 1152 px */
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* --- 1. ШАПКА ТА МЕНЮ --- */
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem 2rem;
+    padding: 1rem;
+}
+
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav a {
+    display: inline-block;
+    padding: 0.5rem 0;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+header picture img {
+    width: 100%;
+    max-width: 40rem;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* --- 2. БЛОК «ПЕРЕВАГИ» --- */
+#benefits ol {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+#benefits ol li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* --- 3. ТАБЛИЦЯ ТАЇРИФІВ --- */
+.table-wrap, #pricing {
+    overflow-x: auto;
+}
+
+#pricing table {
+    width: 100%;
+    min-width: 35rem;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#pricing th, #pricing td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+}
+
+/* --- 4. ВИПРАВЛЕНА СІТКА ДЛЯ ВІДГУКІВ (#reviews) --- */
+#reviews {
+    display: grid;
+    grid-template-columns: 1fr; /* На мобільних — одна колонка */
+    gap: 1.5rem;
+}
+
+#reviews article {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: var(--surface);
+}
+
+/* Робимо так, щоб вкладені секції (відео тощо) розтягувалися на всю ширину сітки */
+#reviews > section {
+    grid-column: 1 / -1;
+}
+
+#reviews article button {
+    margin-top: auto;
+    align-self: flex-start;
+    padding: 0.5rem 1rem;
+    background-color: var(--accent);
+    color: var(--accent-ink);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#reviews video {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+/* --- 5. ФОРМА / КОНТАКТИ --- */
+#contact-form {
+    max-width: 40rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.5rem;
+}
+
+.form-row .field {
+    flex: 1 1 14rem;
+}
+
+/* --- 6. ПІДВАЛ --- */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    margin-top: 2rem;
+}
+
+/* --- 7. МЕДІАЗАПИТИ ДЛЯ ШИРШИХ ЕКРАНІВ --- */
+@media (min-width: 48rem) { /* від 768px */
+    .container, header, main > section, footer {
+        padding: 0 1.5rem;
+    }
+
+    #reviews {
+        grid-template-columns: repeat(2, 1fr); /* На планшетах і ПК — дві колонки для карток */
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* --- 8. ТЕМНА ТЕМА (prefers-color-scheme: dark) --- */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #12141b;
+        --surface: #1c2030;
+        --text: #e8eaf2;
+        --muted: #a9aec2;
+        --line: #343a4f;
+        --accent: #8fa8ff;
+        --accent-ink: #0c1020;
+    }
+}
+
+/* --- 9. ЗМЕНШЕННЯ РУХУ (prefers-reduced-motion) --- */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    /* Вимикаємо анімації, якщо у користувача ввімкнено обмеження руху */
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* --- 10. ВЕРСІЯ ДЛЯ ДРУКУ (@media print) --- */
+@media print {
+    :root {
+        --bg: #ffffff;
+        --surface: #ffffff;
+        --text: #000000;
+        --muted: #333333;
+        --line: #999999;
+        --accent: #1636b0;
+    }
+
+    /* Ховаємо навігацію, кнопки, форми та медіа, які не потрібні на папері */
+    header nav, 
+    #contact-form, 
+    button, 
+    video, 
+    audio, 
+    aside {
+        display: none !important;
+    }
+
+    /* Забезпечуємо нормальне відображення таблиці під час друку */
+    .table-wrap {
+        overflow: visible;
+    }
+
+    #pricing table {
+        min-width: 0;
+        width: 100%;
+    }
+
+    /* Запобігаємо розриву заголовків та елементів на папері */
+    h2, h3 {
+        break-after: avoid;
+    }
+
+    article, tr {
+        break-inside: avoid;
+    }
+}
+
+/* --- ВИПРАВЛЕННЯ ШАПКИ ТА ЛОГОТИПУ --- */
+header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--line);
+}
+
+.header-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+/* Стильний вигляд логотипу замість звичайного заголовка */
+header h1.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--accent);
+}
+
+.header-top .subtitle {
+    font-size: 1rem;
+    color: var(--muted);
+    margin: 0;
+}
+
+/* Навігація в шапці */
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav a {
+    display: inline-block;
+    padding: 0.5rem 0;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+header nav a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* Адаптивне зображення у шапці */
+header .header-img img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Для ширших екранів робимо гарне розміщення в ряд */
+@media (min-width: 48rem) {
+    header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 1.5rem 2rem;
+    }
+
+    header nav {
+        grid-column: 1 / -1;
+    }
+
+    header .header-img {
+        grid-column: 2;
+        grid-row: 1;
+        max-width: 25rem;
+    }
+}
+
+/* --- СТИЛІЗАЦІЯ СЕКЦІЇ «ПЕРЕВАГИ» ТА «ЯК ЦЕ ПРАЦЮЄ» --- */
+#benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+#benefits h2, #benefits h3 {
+    margin-bottom: 0.5rem;
+}
+
+#benefits ol {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: step-counter;
+}
+
+#benefits ol li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    position: relative;
+    counter-increment: step-counter;
+}
+
+#benefits ol li::before {
+    content: counter(step-counter);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--accent);
+    color: var(--accent-ink);
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+#benefits dl {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+    gap: 1rem;
+    background-color: rgba(0, 0, 0, 0.01);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    margin: 0;
+}
+
+#benefits dl dt {
+    font-weight: 600;
+    color: var(--text);
+}
+
+#benefits dl dd {
+    margin: 0;
+    color: var(--muted);
+}
